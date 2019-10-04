@@ -16,11 +16,23 @@
 # should not be loaded into a City object.
 cities = []
 
+import csv
+import os
+
 def cityreader(cities=[]):
   # TODO Implement the functionality to read from the 'cities.csv' file
   # For each city record, create a new City instance and add it to the 
   # `cities` list
-    
+    # Loop over values in cities.csv
+    # Store values in array
+    # Loop over array
+        # push City() to cities
+    with open(f"{os.getcwd()}/src/cityreader/cities.csv", "r") as csv_file:
+        read_csv = csv.reader(csv_file, delimiter=",")
+        for i, row in enumerate(read_csv):
+            if i > 1:
+                cities.append([row[0], row[3], row[4]])
+
     return cities
 
 cityreader(cities)
